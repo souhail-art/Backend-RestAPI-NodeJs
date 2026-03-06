@@ -28,8 +28,10 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-// define a simple route
-app.get('/', (req, res) => {
+app.use(express.static('public'));
+
+// preserve API endpoint
+app.get('/api', (req, res) => {
     res.json({"message": "Welcome to Rest API By Chaaben Group."});
 });
 
